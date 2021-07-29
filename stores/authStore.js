@@ -1,27 +1,16 @@
-// mobx
-import { makeAutoObservable } from 'mobx';
+//library imports
+import { makeAutoObservable } from "mobx";
+import decode from "jwt-decode";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+//components
+import instance from "./instance";
 
-// axios
-import instance from './instance';
-
-// jwt
-import decode from 'jwt-decode';
-
-// storage
-import AsyncStorage from '@react-native-async-storage/async-storage';
-// store class
 class AuthStore {
   user = null;
-  // setting the constructor to watch the data
+  
   constructor() {
     makeAutoObservable(this);
   }
-
-  setUser = async (token) => {
-    await AsyncStorage.setItem('myToken', token);
-    instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-    this.user = decode(token);
-  };
 
   // create new user
   signup = async (newUser, navigation) => {
@@ -39,23 +28,34 @@ class AuthStore {
     await AsyncStorage.removeItem('myToken');
     this.user = null;
   };
+  signin = async (userData) => {
+    try {
+      const response = await instance.post("/signin", userData);
+      this.setUser(response.data.token);
+    } catch (error) {
+      console.error("userSignin:", error);
+    }
+  };
 
-  checkForToken = async () => {
-    const token = await AsyncStorage.getItem('myToken');
+  setUser = async (token) => {
+    await AsyncStorage.setItem("userToken", token);
+    instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+    this.user = decode(token);
+  };
+
+  checkToken = async () => {
+    const token = await AsyncStorage.getItem("userToken");
     if (token) {
-      const currentTime = Date.now();
       const user = decode(token);
-      if (user.exp >= currentTime) {
+      if (user.expires >= Date.now()) {
         this.setUser(token);
       } else {
-        this.signuot();
+        this.signout();
       }
     }
   };
 }
-// creating new instance of the class
+
 const authStore = new AuthStore();
-// auto signin
-authStore.checkForToken();
-// exporting the new instance
+authStore.checkToken();
 export default authStore;

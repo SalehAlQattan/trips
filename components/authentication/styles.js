@@ -18,12 +18,11 @@ export const AuthTitle = styled.Text`
 `;
 
 export const AuthTextInput = styled.TextInput`
+  margin-top: 20px;
   align-self: stretch;
   text-align: left;
   height: 40px;
   margin-bottom: 30px;
-  /* color: ${({ theme }) => theme.mainColor}; */
-  /* border-bottom-color: ${({ theme }) => theme.mainColor}; */
   border-bottom-width: 1px;
 `;
 
@@ -45,4 +44,5 @@ export const AuthButtonText = styled.Text`
 export const AuthOther = styled.Text`
   /* color: ${({ theme }) => theme.red}; */
   margin-top: 15px;
+  border-bottom-width: 1px;
 `;
