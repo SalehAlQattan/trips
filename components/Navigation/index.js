@@ -6,17 +6,14 @@ import Home from '../Home';
 
 import Signup from '../authentication/Signup';
 
-import Signin from "../authentication/Signin";
+import Signin from '../authentication/Signin';
 
-import TripList from "../trips/TripList";
-
+import TripList from '../trips/TripList';
 
 const Stack = createStackNavigator();
 
 export default RootNavigator = () => {
   return (
-
-
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen
         name="Home"
@@ -25,13 +22,7 @@ export default RootNavigator = () => {
           headerShown: false,
         }}
       />
-      <Stack.Screen
-        name="Signin"
-        component={Signin}
-        options={{
-          headerShown: false,
-        }}
-      />
+      <Stack.Screen name="Signin" component={Signin} />
       <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="Explore" component={TripList} />
     </Stack.Navigator>
