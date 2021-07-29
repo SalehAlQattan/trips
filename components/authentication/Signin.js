@@ -1,7 +1,5 @@
 //library imports
 import React, { useState } from 'react';
-import { View, Button } from 'native-base';
-import { Text } from 'react-native';
 import { observer } from 'mobx-react';
 //stores
 import authStore from '../../stores/authStore';
