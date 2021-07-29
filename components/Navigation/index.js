@@ -17,7 +17,7 @@ export default RootNavigator = () => {
   return (
 
 
-    <Stack.Navigator initialRouteName="Explore">
+    <Stack.Navigator initialRouteName="Signin">
       <Stack.Screen
         name="Home"
         component={Home}
@@ -32,7 +32,7 @@ export default RootNavigator = () => {
           headerShown: false,
         }}
       />
-<Stack.Screen name="Signup" component={Signup} />
+      <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="Explore" component={TripList} />
     </Stack.Navigator>
   );
