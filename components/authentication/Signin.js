@@ -1,25 +1,32 @@
 //library imports
-import React, { useState } from "react";
-import { View, Button } from "native-base";
-import { Text } from "react-native";
-import { observer } from "mobx-react";
+import React, { useState } from 'react';
+import { View, Button } from 'native-base';
+import { Text } from 'react-native';
+import { observer } from 'mobx-react';
 //stores
-import authStore from "../../stores/authStore";
+import authStore from '../../stores/authStore';
 //styles
-import { AuthTextInput } from "./styles";
+import {
+  AuthButton,
+  AuthButtonText,
+  AuthContainer,
+  AuthOther,
+  AuthTextInput,
+  AuthTitle,
+} from './styles';
 
 const Signin = ({ navigation }) => {
   const [user, setUser] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
-  const handleConfirm = async () => {
+  const handleSubmit = async () => {
     await authStore.signin(user);
-    if (authStore.user) navigation.replace("Home");
+    if (authStore.user) navigation.replace('Home');
   };
   return (
-    <View>
-      <Text>Signin</Text>
+    <AuthContainer>
+      <AuthTitle>Signin</AuthTitle>
       <AuthTextInput
         placeholder="username"
         autoCapitalize="none"
@@ -31,9 +38,13 @@ const Signin = ({ navigation }) => {
         secureTextEntry={true}
         onChangeText={(password) => setUser({ ...user, password })}
       />
-      <Button onPress={handleConfirm}>Confirm</Button>
-      <Text onPress={() => navigation.navigate("Signup")}>signup?</Text>
-    </View>
+      <AuthButton onPress={handleSubmit}>
+        <AuthButtonText>Signin</AuthButtonText>
+      </AuthButton>
+      <AuthOther onPress={() => navigation.navigate('Signup')}>
+        signup
+      </AuthOther>
+    </AuthContainer>
   );
 };
 

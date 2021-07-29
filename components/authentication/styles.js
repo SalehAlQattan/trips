@@ -30,13 +30,13 @@ export const AuthButton = styled.TouchableOpacity`
   align-self: stretch;
   align-items: center;
   padding: 20px;
-  /* background-color: ${({ theme }) => theme.red}; */
+  background-color: green;
   margin-top: 30px;
   border-radius: 50px;
 `;
 
 export const AuthButtonText = styled.Text`
-  /* color: #fcfdff; */
+  color: #fcfdff;
   font-weight: bold;
   font-size: 18px;
 `;
