@@ -1,8 +1,10 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 
 /* Component */
-import Home from "../Home";
+import Home from '../Home';
+
+import Signup from '../authentication/Signup';
 
 import Signin from "../authentication/Signin";
 
@@ -13,6 +15,7 @@ const Stack = createStackNavigator();
 
 export default RootNavigator = () => {
   return (
+
 
     <Stack.Navigator initialRouteName="Explore">
       <Stack.Screen
@@ -29,8 +32,8 @@ export default RootNavigator = () => {
           headerShown: false,
         }}
       />
+<Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="Explore" component={TripList} />
-
     </Stack.Navigator>
   );
 };

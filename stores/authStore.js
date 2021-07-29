@@ -7,11 +7,27 @@ import instance from "./instance";
 
 class AuthStore {
   user = null;
-
+  
   constructor() {
     makeAutoObservable(this);
   }
 
+  // create new user
+  signup = async (newUser, navigation) => {
+    try {
+      const res = await instance.post('/signup', newUser);
+      this.setUser(res.data.token);
+      navigation.replace('Home');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  signout = async () => {
+    delete instance.defaults.headers.common.Authorization;
+    await AsyncStorage.removeItem('myToken');
+    this.user = null;
+  };
   signin = async (userData) => {
     try {
       const response = await instance.post("/signin", userData);
@@ -39,6 +55,7 @@ class AuthStore {
     }
   };
 }
+
 const authStore = new AuthStore();
 authStore.checkToken();
 export default authStore;
