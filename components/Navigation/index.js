@@ -17,7 +17,7 @@ export default RootNavigator = () => {
   return (
 
 
-    <Stack.Navigator initialRouteName="Signin">
+    <Stack.Navigator initialRouteName="Home">
       <Stack.Screen
         name="Home"
         component={Home}
