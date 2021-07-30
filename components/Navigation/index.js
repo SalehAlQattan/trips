@@ -1,14 +1,11 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-
-/* Component */
-import Home from '../Home';
-
-import Signup from '../authentication/Signup';
-
-import Signin from '../authentication/Signin';
-
-import TripList from '../trips/TripList';
+//library imports
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+//components
+import Home from "../home/Home";
+import Signup from "../authentication/Signup";
+import Signin from "../authentication/Signin";
+import TripList from "../trips/TripList";
 
 const Stack = createStackNavigator();
 
@@ -22,8 +19,26 @@ export default RootNavigator = () => {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="Signin" component={Signin} />
-      <Stack.Screen name="Signup" component={Signup} />
+      <Stack.Screen
+        name="Signin"
+        component={Signin}
+        options={{
+          headerStyle: {
+            backgroundColor: "#DE4B43",
+          },
+          headerTintColor: "black",
+        }}
+      />
+      <Stack.Screen
+        name="Signup"
+        component={Signup}
+        options={{
+          headerStyle: {
+            backgroundColor: "#DE4B43",
+          },
+          headerTintColor: "black",
+        }}
+      />
       <Stack.Screen name="Explore" component={TripList} />
     </Stack.Navigator>
   );
