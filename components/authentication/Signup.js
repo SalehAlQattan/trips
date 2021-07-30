@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
-
+//library imports
+import React, { useState } from "react";
+import { observer } from "mobx-react";
+// stores
+import authStore from "../../stores/authStore";
+//styles
 import {
   AuthButton,
   AuthButtonText,
@@ -7,19 +11,12 @@ import {
   AuthOther,
   AuthTextInput,
   AuthTitle,
-} from './styles';
-
-// mobx
-import { observer } from 'mobx-react';
-
-// stores
-import authStore from '../../stores/authStore';
+} from "./styles";
 
 const Signup = ({ navigation }) => {
-  // state
   const [user, setUser] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   const handleSubmit = () => authStore.signup(user, navigation);
@@ -29,20 +26,22 @@ const Signup = ({ navigation }) => {
       <AuthTitle>Signup</AuthTitle>
       <AuthTextInput
         placeholder="Enter username"
+        placeholderTextColor="#949499"
         autoCapitalize="none"
         onChangeText={(username) => setUser({ ...user, username })}
       />
       <AuthTextInput
         placeholder="Enter password"
+        placeholderTextColor="#949499"
         autoCapitalize="none"
         onChangeText={(password) => setUser({ ...user, password })}
         secureTextEntry={true}
       />
       <AuthButton onPress={handleSubmit}>
-        <AuthButtonText>Signup</AuthButtonText>
+        <AuthButtonText>Sign up</AuthButtonText>
       </AuthButton>
-      <AuthOther onPress={() => navigation.navigate('Signin')}>
-        Tap Here To Signin
+      <AuthOther onPress={() => navigation.navigate("Signin")}>
+        Tap Here To Sign in
       </AuthOther>
     </AuthContainer>
   );
