@@ -6,6 +6,7 @@ import Home from "../home/Home";
 import Signup from "../authentication/Signup";
 import Signin from "../authentication/Signin";
 import TripList from "../trips/TripList";
+import TripDetail from "../trips/TripDetail";
 
 const Stack = createStackNavigator();
 
@@ -40,6 +41,7 @@ export default RootNavigator = () => {
         }}
       />
       <Stack.Screen name="Explore" component={TripList} />
+      <Stack.Screen name="Detail" component={TripDetail} />
     </Stack.Navigator>
   );
 };
