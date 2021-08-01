@@ -6,7 +6,9 @@ import Home from "../home/Home";
 import Signup from "../authentication/Signup";
 import Signin from "../authentication/Signin";
 import TripList from "../trips/TripList";
+import AddList from "../trips/Add/AddList";
 import TripDetail from "../trips/TripDetail";
+
 
 const Stack = createStackNavigator();
 
@@ -41,7 +43,19 @@ export default RootNavigator = () => {
         }}
       />
       <Stack.Screen name="Explore" component={TripList} />
+      <Stack.Screen
+        name="AddList"
+        component={AddList}
+        options={{
+          headerStyle: {
+            backgroundColor: "#DE4B43",
+          },
+          headerTintColor: "black",
+        }}
+      />
+
       <Stack.Screen name="Detail" component={TripDetail} />
+
     </Stack.Navigator>
   );
 };
