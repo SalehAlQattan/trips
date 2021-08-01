@@ -8,11 +8,11 @@ import AddButton from "./Add/AddButton";
 //stores
 import tripStore from "../../stores/tripStore";
 
-const TripsList = () => {
+const TripsList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
 
   const triplist = tripStore.trips.map((item) => (
-    <TripItem item={item} key={item.id} />
+    <TripItem item={item} key={item.id} navigation={navigation} />
   ));
 
   return (

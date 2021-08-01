@@ -7,6 +7,8 @@ import Signup from "../authentication/Signup";
 import Signin from "../authentication/Signin";
 import TripList from "../trips/TripList";
 import AddList from "../trips/Add/AddList";
+import TripDetail from "../trips/TripDetail";
+
 
 const Stack = createStackNavigator();
 
@@ -51,6 +53,9 @@ export default RootNavigator = () => {
           headerTintColor: "black",
         }}
       />
+
+      <Stack.Screen name="Detail" component={TripDetail} />
+
     </Stack.Navigator>
   );
 };

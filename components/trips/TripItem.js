@@ -4,11 +4,11 @@ import { List } from "native-base";
 //styles
 import { DisplayProfile, TripImage, TripTitle, TripWrpa } from "./styles";
 
-const TripItem = ({ item }) => {
+const TripItem = ({ item, navigation }) => {
   return (
     <List.Item>
       <DisplayProfile source={{ uri: item.profile }} />
-      <TripWrpa>
+      <TripWrpa onPress={() => navigation.navigate('Detail', { item: item })}>
         <TripTitle>{item.title}</TripTitle>
         <TripImage source={{ uri: item.image }} />
       </TripWrpa>
