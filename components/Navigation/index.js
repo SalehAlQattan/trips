@@ -1,6 +1,7 @@
 //library imports
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+
 //components
 import Home from "../home/Home";
 import Signup from "../authentication/Signup";
@@ -9,7 +10,7 @@ import TripList from "../trips/TripList";
 import AddList from "../trips/Add/AddList";
 import TripDetail from "../trips/TripDetail";
 import profileDetail from "../profile/profileDetail";
-
+import UpdateTrip from '../trips/update/UpdateTrip';
 
 const Stack = createStackNavigator();
 
@@ -28,9 +29,9 @@ export default RootNavigator = () => {
         component={Signin}
         options={{
           headerStyle: {
-            backgroundColor: "#DE4B43",
+            backgroundColor: '#DE4B43',
           },
-          headerTintColor: "black",
+          headerTintColor: 'black',
         }}
       />
       <Stack.Screen
@@ -38,9 +39,9 @@ export default RootNavigator = () => {
         component={Signup}
         options={{
           headerStyle: {
-            backgroundColor: "#DE4B43",
+            backgroundColor: '#DE4B43',
           },
-          headerTintColor: "black",
+          headerTintColor: 'black',
         }}
       />
       <Stack.Screen name="Explore" component={TripList} />
@@ -49,9 +50,19 @@ export default RootNavigator = () => {
         component={AddList}
         options={{
           headerStyle: {
-            backgroundColor: "#DE4B43",
+            backgroundColor: '#DE4B43',
           },
-          headerTintColor: "black",
+          headerTintColor: 'black',
+        }}
+      />
+      <Stack.Screen
+        name="UpdateTrip"
+        component={UpdateTrip}
+        options={{
+          headerStyle: {
+            backgroundColor: '#DE4B43',
+          },
+          headerTintColor: 'black',
         }}
       />
       <Stack.Screen name="Detail" component={TripDetail} />
