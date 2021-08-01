@@ -7,6 +7,8 @@ import TripItem from "./TripItem";
 import AddButton from "./Add/AddButton";
 //stores
 import tripStore from "../../stores/tripStore";
+import { ScrollView } from "react-native";
+import authStore from "../../stores/authStore";
 
 const TripsList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
@@ -16,10 +18,10 @@ const TripsList = ({ navigation }) => {
   ));
 
   return (
-    <>
-      <AddButton />
+    <ScrollView>
+      {authStore.user && <AddButton />}
       <List>{triplist}</List>
-    </>
+    </ScrollView>
   );
 };
 

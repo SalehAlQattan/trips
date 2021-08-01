@@ -6,7 +6,7 @@ import authStore from '../../stores/authStore';
 
 
 import { observer } from "mobx-react";
-import { Action, DeleteBtn, EditBtn } from './styles';
+import { Action, DeleteBtn, EditBtn, TripImage } from './styles';
 
 const TripDetail = ({ route, navigation }) => {
     if (tripStore.loading) return <Spinner />;
@@ -20,6 +20,7 @@ const TripDetail = ({ route, navigation }) => {
         <>
             <List>
                 <List.Item>{item.title}</List.Item>
+                <List.Item><TripImage source={{ uri: item.image }} /></List.Item>
                 <List.Item>{item.description}</List.Item>
             </List>
             {/* Here Will add the action [edit, delete] */}

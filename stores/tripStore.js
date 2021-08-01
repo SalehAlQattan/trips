@@ -27,7 +27,7 @@ class TripStore {
       for (const key in newTrip) formData.append(key, newTrip[key]);
       const response = await instance.post("/trips", formData);
       this.trips.push(response.data);
-      navigation.replace("Explore");
+      navigation.goBack();
     } catch (error) {
       console.error("createTrips:", error);
     }
