@@ -29,18 +29,21 @@ const Home = ({ navigation }) => {
     <HomeBgImage source={require("../../assets/bgHome.jpg")}>
       <HomeContainer>
         <SafeAreaView>
-          <HomeSigninButton onPress={() => navigation.navigate("Signin")}>
-            <HomeSigninButtonText>Sign in</HomeSigninButtonText>
-          </HomeSigninButton>
-          <TextOther onPress={() => navigation.navigate("Signup")}>
-            Sign up ?
-          </TextOther>
-          <TextOther onPress={() => navigation.navigate("Explore")}>
-            Guest
-          </TextOther>
           {authStore.user ? (
-            <TextOther onPress={handleSignout}>Sign out</TextOther>
-          ) : null}
+            <>
+              <TextOther onPress={() => navigation.navigate("Explore")}>
+                Explore
+              </TextOther>
+              <TextOther onPress={handleSignout}>Sign out</TextOther>
+            </>
+          ) : <>
+            <HomeSigninButton onPress={() => navigation.navigate("Signin")}>
+              <HomeSigninButtonText>Sign in</HomeSigninButtonText>
+            </HomeSigninButton>
+            <TextOther onPress={() => navigation.navigate("Explore")}>
+              As Guest
+            </TextOther>
+          </>}
         </SafeAreaView>
       </HomeContainer>
     </HomeBgImage>
