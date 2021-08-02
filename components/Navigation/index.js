@@ -1,6 +1,6 @@
 //library imports
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
 
 //components
 import Home from "../home/Home";
@@ -13,6 +13,7 @@ import ProfileList from "../profile/ProfileList";
 import UpdateTrip from '../trips/update/UpdateTrip';
 import UserProfile from '../profile/myProfile/UserProfile';
 import UpdateUser from '../profile/myProfile/update/UpdateUser';
+
 
 const Stack = createStackNavigator();
 
@@ -31,9 +32,9 @@ export default RootNavigator = () => {
         component={Signin}
         options={{
           headerStyle: {
-            backgroundColor: '#DE4B43',
+            backgroundColor: "#DE4B43",
           },
-          headerTintColor: 'black',
+          headerTintColor: "black",
         }}
       />
       <Stack.Screen
@@ -41,23 +42,30 @@ export default RootNavigator = () => {
         component={Signup}
         options={{
           headerStyle: {
-            backgroundColor: '#DE4B43',
+            backgroundColor: "#DE4B43",
           },
-          headerTintColor: 'black',
+          headerTintColor: "black",
         }}
       />
-      <Stack.Screen name="Explore" component={TripList}
+      <Stack.Screen
+        name="Explore"
+        component={TripList}
         options={{
-          headerRight: () => <UserProfile />,
-        }} />
+          headerStyle: {
+            backgroundColor: "#2F375B",
+          },
+          headerTintColor: "white",
+            headerRight: () => <UserProfile />,
+        }}
+      />
       <Stack.Screen
         name="AddList"
         component={AddList}
         options={{
           headerStyle: {
-            backgroundColor: '#DE4B43',
+            backgroundColor: "#DE4B43",
           },
-          headerTintColor: 'black',
+          headerTintColor: "black",
         }}
       />
       <Stack.Screen
@@ -65,9 +73,9 @@ export default RootNavigator = () => {
         component={UpdateTrip}
         options={{
           headerStyle: {
-            backgroundColor: '#DE4B43',
+            backgroundColor: "#DE4B43",
           },
-          headerTintColor: 'black',
+          headerTintColor: "black",
         }}
       />
       <Stack.Screen name="Detail" component={TripDetail} />

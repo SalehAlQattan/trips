@@ -1,8 +1,8 @@
 //library imports
-import React, { useState } from 'react';
-import { observer } from 'mobx-react';
-import { Button } from 'native-base';
-import * as DocumentPicker from 'expo-document-picker';
+import React, { useState } from "react";
+import { observer } from "mobx-react";
+import { Button } from "native-base";
+import * as DocumentPicker from "expo-document-picker";
 //stores
 import tripStore from '../../../stores/tripStore';
 //styles
@@ -24,18 +24,21 @@ const AddList = ({ navigation }) => {
   const pickDocument = async () => {
     try {
       let result = await DocumentPicker.getDocumentAsync({
-        type: '*/*',
+        type: "*/*",
         copyToCacheDirectory: true,
       }).then((response) => {
-        if (response.type == 'success') {
+        if (response.type == "success") {
+
           let { name, size, uri } = response;
-          let nameParts = name.split('.');
+          let nameParts = name.split(".");
           let fileType = nameParts[nameParts.length - 1];
           var fileToUpload = {
             name: name,
             size: size,
             uri: uri,
-            type: 'application/' + fileType,
+
+            type: "application/" + fileType,
+
           };
           setDoc(fileToUpload);
           setTrip({ ...trip, image: fileToUpload });

@@ -32,7 +32,7 @@ export const HomeSigninButtonText = styled.Text`
   font-size: 18px;
 `;
 export const TextOther = styled.Text`
-  color: ${({ theme }) => theme.white}
+  color: ${({ theme }) => theme.white};
   margin-top: 15px;
   border-bottom-width: 1px;
   padding-right: 80px;

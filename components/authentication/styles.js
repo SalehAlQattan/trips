@@ -11,10 +11,10 @@ export const AuthContainer = styled.View`
 `;
 
 export const AuthTitle = styled.Text`
-   color: ${({ theme }) => theme.white}; 
+  color: ${({ theme }) => theme.white};
   font-size: 24px;
   margin-bottom: 20px;
-   border-bottom-color: ${({ theme }) => theme.yellow}; */
+  border-bottom-color: ${({ theme }) => theme.yellow};
 `;
 
 export const AuthTextInput = styled.TextInput`
