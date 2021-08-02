@@ -63,8 +63,7 @@ const UpdateTrip = ({ route, navigation }) => {
 
   const handleSubmit = () => {
     tripStore.updateTrip(trip);
-    console.log(trip);
-    navigation.navigate('Explore');
+    navigation.replace('Explore');
   };
 
   return (
