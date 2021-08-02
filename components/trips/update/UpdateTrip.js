@@ -1,11 +1,17 @@
 // components
 import React, { useState } from 'react';
 
+// native-base
+import { Button } from 'native-base';
+
 // stores
 import tripStore from '../../../stores/tripStore';
 
 // mobx
 import { observer } from 'mobx-react';
+
+// upload image
+import * as DocumentPicker from 'expo-document-picker';
 
 // styles
 import {
@@ -15,6 +21,7 @@ import {
   ConfirmAddButton,
   ConfirmAddButtonText,
 } from '../styles';
+import { Image } from 'react-native';
 
 const UpdateTrip = ({ route, navigation }) => {
   const { item } = route.params;
@@ -23,13 +30,40 @@ const UpdateTrip = ({ route, navigation }) => {
     id: item.id,
     title: item.title,
     description: item.description ? item.description : '',
-    image: item.image ? item.image : '',
+    image: {
+      uri: item.image ? item.image : '',
+    },
   });
+
+  const [doc, setDoc] = useState();
+  const pickDocument = async () => {
+    try {
+      let result = await DocumentPicker.getDocumentAsync({
+        type: '*/*',
+        copyToCacheDirectory: true,
+      }).then((response) => {
+        if (response.type == 'success') {
+          let { name, size, uri } = response;
+          let nameParts = name.split('.');
+          let fileType = nameParts[nameParts.length - 1];
+          var fileToUpload = {
+            name: name,
+            size: size,
+            uri: uri,
+            type: 'application/' + fileType,
+          };
+          setDoc(fileToUpload);
+          setTrip({ ...trip, image: fileToUpload });
+        }
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleSubmit = () => {
     tripStore.updateTrip(trip);
-    console.log(trip);
-    navigation.navigate('Explore');
+    navigation.replace('Explore');
   };
 
   return (
@@ -48,12 +82,11 @@ const UpdateTrip = ({ route, navigation }) => {
         multiline={true}
         onChangeText={(description) => setTrip({ ...trip, description })}
       />
-      <AddTextInput
-        placeholder="Image"
-        placeholderTextColor="#949499"
-        autoCapitalize="none"
-        onChangeText={(image) => setTrip({ ...trip, image })}
+      <Image
+        source={{ uri: trip.image.uri }}
+        style={{ width: 200, height: 200 }}
       />
+      <Button onPress={pickDocument}>Update your image</Button>
       <ConfirmAddButton onPress={handleSubmit}>
         <ConfirmAddButtonText>Update</ConfirmAddButtonText>
       </ConfirmAddButton>

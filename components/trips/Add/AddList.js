@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 import { Button } from "native-base";
 import * as DocumentPicker from "expo-document-picker";
 //stores
-import tripStore from "../../../stores/tripStore";
+import tripStore from '../../../stores/tripStore';
 //styles
 import {
   AddTextInput,
@@ -12,13 +12,13 @@ import {
   AddTitle,
   ConfirmAddButton,
   ConfirmAddButtonText,
-} from "../styles";
+} from '../styles';
 
 const AddList = ({ navigation }) => {
   const [trip, setTrip] = useState({
-    title: "",
-    description: "",
-    image: "",
+    title: '',
+    description: '',
+    image: '',
   });
   const [doc, setDoc] = useState();
   const pickDocument = async () => {
@@ -28,6 +28,7 @@ const AddList = ({ navigation }) => {
         copyToCacheDirectory: true,
       }).then((response) => {
         if (response.type == "success") {
+
           let { name, size, uri } = response;
           let nameParts = name.split(".");
           let fileType = nameParts[nameParts.length - 1];
@@ -35,7 +36,9 @@ const AddList = ({ navigation }) => {
             name: name,
             size: size,
             uri: uri,
+
             type: "application/" + fileType,
+
           };
           setDoc(fileToUpload);
           setTrip({ ...trip, image: fileToUpload });

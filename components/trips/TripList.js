@@ -14,10 +14,7 @@ import { BGC, FloatingAdd, ListItemContainer } from "./styles";
 
 const TripsList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
-
-  /* only show other trips */
-  console.log(tripStore.trips);
-  const triplist = tripStore.trips.map((item) => (
+  const triplist = tripStore.trips.filter(item => item.userId !== authStore.user?.id).map((item) => (
     <TripItem item={item} key={item.id} navigation={navigation} />
   ));
 
