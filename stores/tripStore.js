@@ -10,17 +10,18 @@ class TripStore {
   constructor() {
     makeAutoObservable(this);
   }
-
+  // Typo😂 fecthTrips❌ fetchTrip✅
   fecthTrips = async () => {
     try {
       const response = await instance.get("/trips");
       this.trips = response.data;
       this.loading = false;
     } catch (error) {
-      console.error("fecthTrips: ", error);
+      console.error("fecthTrips: ", error); //again typo
     }
   };
 
+  // createtrip ✅ when you are using this function you are creating one trip only not many trips right?
   createTrips = async (newTrip, navigation) => {
     try {
       const formData = new FormData();
@@ -36,14 +37,14 @@ class TripStore {
   deleteTrip = async (itemId) => {
     try {
       await instance.delete(`/trips/${itemId}`);
-      const updateTrip = this.trips = this.trips.filter((item) => item.id !== itemId)
+      const updateTrip = (this.trips = this.trips.filter(
+        (item) => item.id !== itemId
+      ));
       this.trips = updateTrip;
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-
-  }
-
+  };
 
   getTripById = (tripId) => this.trips.find((trip) => trip.id === tripId);
 }

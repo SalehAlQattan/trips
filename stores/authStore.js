@@ -16,7 +16,9 @@ class AuthStore {
     try {
       const res = await instance.post("/signup", newUser);
       this.setUser(res.data.token);
+      // 👇🏻you are doing this in both signup and signin right? why not moving it somewhere else?
       navigation.replace("Explore");
+      // 👆🏻
     } catch (error) {
       console.error(error);
     }

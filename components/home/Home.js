@@ -1,5 +1,6 @@
 //library imports
 import React from "react";
+// if you are not using Text remove it from the import!
 import { SafeAreaView, Alert, Text } from "react-native";
 import { observer } from "mobx-react";
 //stores
@@ -36,14 +37,16 @@ const Home = ({ navigation }) => {
               </TextOther>
               <TextOther onPress={handleSignout}>Sign out</TextOther>
             </>
-          ) : <>
-            <HomeSigninButton onPress={() => navigation.navigate("Signin")}>
-              <HomeSigninButtonText>Sign in</HomeSigninButtonText>
-            </HomeSigninButton>
-            <TextOther onPress={() => navigation.navigate("Explore")}>
-              As Guest
-            </TextOther>
-          </>}
+          ) : (
+            <>
+              <HomeSigninButton onPress={() => navigation.navigate("Signin")}>
+                <HomeSigninButtonText>Sign in</HomeSigninButtonText>
+              </HomeSigninButton>
+              <TextOther onPress={() => navigation.navigate("Explore")}>
+                As Guest
+              </TextOther>
+            </>
+          )}
         </SafeAreaView>
       </HomeContainer>
     </HomeBgImage>

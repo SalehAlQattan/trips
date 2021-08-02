@@ -33,7 +33,9 @@ const Signin = ({ navigation }) => {
         placeholder="username"
         placeholderTextColor="#949499"
         autoCapitalize="none"
+        // I think you can clean this up 👇🏻
         onChangeText={(event) => setUser({ ...user, username: event })}
+        //👆🏻
       />
       <AuthTextInput
         placeholder="password"
