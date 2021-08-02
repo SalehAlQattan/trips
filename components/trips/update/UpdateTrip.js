@@ -21,6 +21,7 @@ import {
   ConfirmAddButton,
   ConfirmAddButtonText,
 } from '../styles';
+import { Image } from 'react-native';
 
 const UpdateTrip = ({ route, navigation }) => {
   const { item } = route.params;
@@ -29,7 +30,9 @@ const UpdateTrip = ({ route, navigation }) => {
     id: item.id,
     title: item.title,
     description: item.description ? item.description : '',
-    image: item.image ? item.image : '',
+    image: {
+      uri: item.image ? item.image : '',
+    },
   });
 
   const [doc, setDoc] = useState();
@@ -79,6 +82,10 @@ const UpdateTrip = ({ route, navigation }) => {
         autoCapitalize="none"
         multiline={true}
         onChangeText={(description) => setTrip({ ...trip, description })}
+      />
+      <Image
+        source={{ uri: trip.image.uri }}
+        style={{ width: 200, height: 200 }}
       />
       <Button onPress={pickDocument}>Update your image</Button>
       <ConfirmAddButton onPress={handleSubmit}>
