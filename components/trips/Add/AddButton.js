@@ -17,7 +17,7 @@ const AddButton = () => {
 
   return (
     <>
-      <AddIcon name="pluscircle" size={24} onPress={handlePress} />
+      <AddIcon name="pluscircle" size={45} onPress={handlePress} />
     </>
   );
 };

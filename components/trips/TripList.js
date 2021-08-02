@@ -9,21 +9,29 @@ import AddButton from "./Add/AddButton";
 import tripStore from "../../stores/tripStore";
 import { ScrollView } from "react-native";
 import authStore from "../../stores/authStore";
+//styles
+import { BGC, FloatingAdd, ListItemContainer } from "./styles";
 
 const TripsList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
 
   /* only show other trips */
-  console.log(tripStore.trips)
+  console.log(tripStore.trips);
   const triplist = tripStore.trips.map((item) => (
     <TripItem item={item} key={item.id} navigation={navigation} />
   ));
 
   return (
-    <ScrollView>
-      {authStore.user && <AddButton />}
-      <List>{triplist}</List>
-    </ScrollView>
+    <BGC>
+      <ScrollView>
+        <ListItemContainer>{triplist}</ListItemContainer>
+      </ScrollView>
+      {authStore.user && (
+        <FloatingAdd>
+          <AddButton />
+        </FloatingAdd>
+      )}
+    </BGC>
   );
 };
 

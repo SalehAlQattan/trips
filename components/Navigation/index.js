@@ -1,6 +1,6 @@
 //library imports
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
 
 //components
 import Home from "../home/Home";
@@ -10,7 +10,7 @@ import TripList from "../trips/TripList";
 import AddList from "../trips/Add/AddList";
 import TripDetail from "../trips/TripDetail";
 import ProfileList from "../profile/ProfileList";
-import UpdateTrip from '../trips/update/UpdateTrip';
+import UpdateTrip from "../trips/update/UpdateTrip";
 
 const Stack = createStackNavigator();
 
@@ -29,9 +29,9 @@ export default RootNavigator = () => {
         component={Signin}
         options={{
           headerStyle: {
-            backgroundColor: '#DE4B43',
+            backgroundColor: "#DE4B43",
           },
-          headerTintColor: 'black',
+          headerTintColor: "black",
         }}
       />
       <Stack.Screen
@@ -39,20 +39,29 @@ export default RootNavigator = () => {
         component={Signup}
         options={{
           headerStyle: {
-            backgroundColor: '#DE4B43',
+            backgroundColor: "#DE4B43",
           },
-          headerTintColor: 'black',
+          headerTintColor: "black",
         }}
       />
-      <Stack.Screen name="Explore" component={TripList} />
+      <Stack.Screen
+        name="Explore"
+        component={TripList}
+        options={{
+          headerStyle: {
+            backgroundColor: "#2F375B",
+          },
+          headerTintColor: "white",
+        }}
+      />
       <Stack.Screen
         name="AddList"
         component={AddList}
         options={{
           headerStyle: {
-            backgroundColor: '#DE4B43',
+            backgroundColor: "#DE4B43",
           },
-          headerTintColor: 'black',
+          headerTintColor: "black",
         }}
       />
       <Stack.Screen
@@ -60,9 +69,9 @@ export default RootNavigator = () => {
         component={UpdateTrip}
         options={{
           headerStyle: {
-            backgroundColor: '#DE4B43',
+            backgroundColor: "#DE4B43",
           },
-          headerTintColor: 'black',
+          headerTintColor: "black",
         }}
       />
       <Stack.Screen name="Detail" component={TripDetail} />

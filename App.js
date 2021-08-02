@@ -12,6 +12,7 @@ const theme = {
   yellow: "#FEC240",
   red: "#DE4B43",
   lightBlue: "#98C4D1",
+  light: "#3a4471",
 };
 
 export default function App() {

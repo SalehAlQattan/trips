@@ -1,14 +1,12 @@
-
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { AntDesign } from "@expo/vector-icons";
-import { List } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
-import { Feather } from '@expo/vector-icons';
-
+import { Feather } from "@expo/vector-icons";
+import { List } from "native-base";
 /* Wrapper */
 export const TripWrpa = styled.TouchableOpacity`
-    display: flex;
-    margin: auto
+  display: flex;
+  margin: auto;
 `;
 
 /* User Profile Image */
@@ -21,21 +19,35 @@ export const DisplayProfile = styled.Image`
 /* Trip Title */
 export const TripTitle = styled.Text`
   text-align: center;
-  margin: auto;
+  right: 30;
+  bottom: 10;
+  color: ${({ theme }) => theme.white};
   font-size: 22px;
   font-weight: bold;
+  margin-top: 80px;
 `;
 
 /* Trip Image */
 export const TripImage = styled.Image`
-  width: 120px;
-  height: 100px;
-  margin: auto;
+  width: 400px;
+  top: 10;
+  margin-bottom: 20px;
+  right: 40;
+  height: 130px;
+  border-radius: 10px;
 `;
 
 /* Add button */
 export const AddIcon = styled(AntDesign)`
   color: ${({ theme }) => theme.red};
+`;
+
+export const FloatingAdd = styled.TouchableOpacity`
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 360px;
+  bottom: 30px;
 `;
 
 export const AddContainer = styled.View`
@@ -83,18 +95,43 @@ export const ConfirmAddButtonText = styled.Text`
 /* Start Details Trip */
 /* Wrapper */
 export const Action = styled.View`
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
 `;
 /* Delete Button */
 export const DeleteBtn = styled(MaterialIcons)`
-    color: red
+  color: red;
 `;
 /* Edit Button */
 export const EditBtn = styled(Feather)`
-    color: #0dcaf0
+  color: #0dcaf0;
 `;
 /* End Details Trip */
+export const BGC = styled.View`
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  background-color: ${({ theme }) => theme.backgroundColor};
+`;
 
+export const ItemList = styled(List.Item)`
+  background-color: ${({ theme }) => theme.light};
+  border-radius: 10px;
+  margin-bottom: 5px;
+`;
+
+export const ItemView = styled.View`
+  bottom: 80;
+  right: 15;
+`;
+export const UserNameText = styled.Text`
+  left: 75;
+  bottom: 80;
+  color: ${({ theme }) => theme.white};
+  font-size: 20px;
+`;
+export const ListItemContainer = styled(List)`
+  border-width: 0px;
+`;
