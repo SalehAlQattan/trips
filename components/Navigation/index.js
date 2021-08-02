@@ -11,6 +11,8 @@ import AddList from "../trips/Add/AddList";
 import TripDetail from "../trips/TripDetail";
 import ProfileList from "../profile/ProfileList";
 import UpdateTrip from '../trips/update/UpdateTrip';
+import UserProfile from '../profile/myProfile/UserProfile';
+import UpdateUser from '../profile/myProfile/update/UpdateUser';
 
 const Stack = createStackNavigator();
 
@@ -44,7 +46,10 @@ export default RootNavigator = () => {
           headerTintColor: 'black',
         }}
       />
-      <Stack.Screen name="Explore" component={TripList} />
+      <Stack.Screen name="Explore" component={TripList}
+        options={{
+          headerRight: () => <UserProfile />,
+        }} />
       <Stack.Screen
         name="AddList"
         component={AddList}
@@ -67,6 +72,7 @@ export default RootNavigator = () => {
       />
       <Stack.Screen name="Detail" component={TripDetail} />
       <Stack.Screen name="Profile" component={ProfileList} />
+      <Stack.Screen name="Edit Profile" component={UpdateUser} />
     </Stack.Navigator>
   );
 };

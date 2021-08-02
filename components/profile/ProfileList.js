@@ -8,14 +8,16 @@ import { observer } from "mobx-react";
 import ProfileItem from "./ProfileItem";
 import ProfileTrip from "./ProfileTrip";
 
-const ProfileList = ({ route }) => {
+const ProfileList = ({ route, navigation }) => {
+
     if (authStore.loading) <Spinner />
     const { item } = route.params;
     /* find the user profile */
     const userList = profileStore.profiles
-        .filter((user) => user.userId === item.userId)
+        .filter((user) => user.userId === authStore.user?.id)
         .map((user) => user.user)
-        .map((user) => <ProfileItem user={user} key={user.username} />);
+        .map((user) => <ProfileItem user={user} key={user.username} navigation={navigation} item={item.userId} />);
+    console.log(userList)
     /* find all trips */
     const findTrips = tripStore.trips
         .filter((trip) => trip.userId === item.userId)
