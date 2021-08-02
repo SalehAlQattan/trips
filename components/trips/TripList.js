@@ -13,6 +13,8 @@ import authStore from "../../stores/authStore";
 const TripsList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
 
+  /* only show other trips */
+  console.log(tripStore.trips)
   const triplist = tripStore.trips.map((item) => (
     <TripItem item={item} key={item.id} navigation={navigation} />
   ));

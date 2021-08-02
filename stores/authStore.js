@@ -18,7 +18,7 @@ class AuthStore {
       const res = await instance.post("/signup", newUser);
       this.setUser(res.data.token);
       navigation.replace("Explore");
-      profileStore.fecthProfiles(); //will check later
+      //profileStore.fecthProfiles(); //will check later
     } catch (error) {
       console.error(error);
     }

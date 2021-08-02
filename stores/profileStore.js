@@ -11,17 +11,17 @@ class ProfileStore {
         makeAutoObservable(this);
     }
 
-    fecthProfiles = async () => {
+    fetchProfile = async () => {
         try {
             const response = await instance.get(`/profiles`);
             this.profiles = response.data;
             this.loading = false;
         } catch (error) {
-            console.error("fecthProfiles: ", error);
+            console.error("fetchProfile: ", error);
         }
     };
 }
 
 const profileStore = new ProfileStore(); // create instance
-profileStore.fecthProfiles();
+profileStore.fetchProfile();
 export default profileStore; // export it
