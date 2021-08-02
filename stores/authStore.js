@@ -4,6 +4,7 @@ import decode from "jwt-decode";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 //components
 import instance from "./instance";
+import profileStore from "./profileStore";
 
 class AuthStore {
   user = null;
@@ -17,6 +18,7 @@ class AuthStore {
       const res = await instance.post("/signup", newUser);
       this.setUser(res.data.token);
       navigation.replace("Explore");
+      profileStore.fecthProfiles(); //will check later
     } catch (error) {
       console.error(error);
     }

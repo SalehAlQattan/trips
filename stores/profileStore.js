@@ -13,7 +13,7 @@ class ProfileStore {
 
     fecthProfiles = async () => {
         try {
-            // const response = await instance.get(`/profiles/${userId}`);
+            const response = await instance.get(`/profiles`);
             this.profiles = response.data;
             this.loading = false;
         } catch (error) {
@@ -23,5 +23,5 @@ class ProfileStore {
 }
 
 const profileStore = new ProfileStore(); // create instance
-profileStore.fecthTrips();
+profileStore.fecthProfiles();
 export default profileStore; // export it

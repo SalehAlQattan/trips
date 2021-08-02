@@ -9,7 +9,7 @@ import Signin from "../authentication/Signin";
 import TripList from "../trips/TripList";
 import AddList from "../trips/Add/AddList";
 import TripDetail from "../trips/TripDetail";
-import profileDetail from "../profile/profileDetail";
+import ProfileList from "../profile/ProfileList";
 import UpdateTrip from '../trips/update/UpdateTrip';
 
 const Stack = createStackNavigator();
@@ -66,7 +66,7 @@ export default RootNavigator = () => {
         }}
       />
       <Stack.Screen name="Detail" component={TripDetail} />
-      <Stack.Screen name="Profile" component={profileDetail} />
+      <Stack.Screen name="Profile" component={ProfileList} />
     </Stack.Navigator>
   );
 };

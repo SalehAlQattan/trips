@@ -57,7 +57,7 @@ class TripStore {
     }
   };
 
-  getTripById = (tripId) => this.trips.find((trip) => trip.id === tripId);
+  getTripById = (tripId) => this.trips.find((trip) => trip.userId === tripId);
 }
 
 const tripStore = new TripStore(); // create instance
