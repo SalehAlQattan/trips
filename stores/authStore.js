@@ -16,8 +16,8 @@ class AuthStore {
   signup = async (newUser, navigation) => {
     try {
       const res = await instance.post("/signup", newUser);
-      this.setUser(res.data.token, navigation);
-      profileStore.fetchProfile(); //will check later
+      this.setUser(res.data.token);
+      navigation.replace("Explore");
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +42,7 @@ class AuthStore {
     await AsyncStorage.setItem("userToken", token);
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     this.user = decode(token);
-    navigation.replace("Explore");
+    profileStore.fetchProfile(); //will check later
   };
 
   checkToken = async () => {
@@ -60,5 +60,4 @@ class AuthStore {
 
 const authStore = new AuthStore();
 authStore.checkToken();
-profileStore.fetchProfile(); //will check later
 export default authStore;
