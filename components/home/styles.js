@@ -11,7 +11,6 @@ export const HomeContainer = styled.View`
   align-self: stretch;
   justify-content: center;
   align-items: center;
-  /* background-color: ${({ theme }) => theme.backgroundColor}; */
   padding-right: 60px;
   padding-left: 60px;
   margin-top: 350px;

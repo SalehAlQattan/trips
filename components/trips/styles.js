@@ -1,8 +1,10 @@
+//library imports
 import styled from "styled-components/native";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { List } from "native-base";
+
 /* Wrapper */
 export const TripWrpa = styled.TouchableOpacity`
   display: flex;
@@ -19,8 +21,8 @@ export const DisplayProfile = styled.Image`
 /* Trip Title */
 export const TripTitle = styled.Text`
   text-align: center;
-  right: 30;
-  bottom: 10;
+  right: 30px;
+  bottom: 10px;
   color: ${({ theme }) => theme.white};
   font-size: 22px;
   font-weight: bold;
@@ -30,9 +32,9 @@ export const TripTitle = styled.Text`
 /* Trip Image */
 export const TripImage = styled.Image`
   width: 400px;
-  top: 10;
+  top: 10px;
   margin-bottom: 20px;
-  right: 40;
+  right: 40px;
   height: 130px;
   border-radius: 10px;
 `;
@@ -123,15 +125,57 @@ export const ItemList = styled(List.Item)`
 `;
 
 export const ItemView = styled.View`
-  bottom: 80;
-  right: 15;
+  bottom: 80px;
+  right: 15px;
 `;
 export const UserNameText = styled.Text`
-  left: 75;
-  bottom: 80;
+  left: 75px;
+  bottom: 80px;
   color: ${({ theme }) => theme.white};
   font-size: 20px;
 `;
 export const ListItemContainer = styled(List)`
   border-width: 0px;
+`;
+
+export const TripImageDetail = styled.Image`
+  width: 90%;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 400px;
+  border-radius: 10px;
+`;
+
+export const TitleDetail = styled(List.Item)`
+  margin-top: 200px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+`;
+export const TextTitleDetail = styled.Text`
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 28px;
+  color: ${({ theme }) => theme.red};
+`;
+export const TextDescriptionDetail = styled.Text`
+  font-size: 20px;
+  margin-left: 10px;
+`;
+export const BGCDetail = styled.View`
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  background-color: ${({ theme }) => theme.random};
+`;
+export const DetailList = styled(List)`
+  border-width: 0px;
+`;
+export const ViewStyled = styled.View`
+  height: 400%;
+  width: 100%;
+  top: 250px;
+  background-color: ${({ theme }) => theme.white};
+  position: absolute;
+  z-index: -1;
 `;

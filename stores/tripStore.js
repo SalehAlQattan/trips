@@ -1,7 +1,7 @@
 //library imports
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable } from "mobx";
 //components
-import instance from './instance';
+import instance from "./instance";
 
 class TripStore {
   trips = [];
@@ -11,25 +11,25 @@ class TripStore {
     makeAutoObservable(this);
   }
 
-  fecthTrips = async () => {
+  fetchTrips = async () => {
     try {
-      const response = await instance.get('/trips');
+      const response = await instance.get("/trips");
       this.trips = response.data;
       this.loading = false;
     } catch (error) {
-      console.error('fecthTrips: ', error);
+      console.error("fetchTrips: ", error);
     }
   };
 
-  createTrips = async (newTrip, navigation) => {
+  createTrip = async (newTrip, navigation) => {
     try {
       const formData = new FormData();
       for (const key in newTrip) formData.append(key, newTrip[key]);
-      const response = await instance.post('/trips', formData);
+      const response = await instance.post("/trips", formData);
       this.trips.push(response.data);
-      navigation.replace('Explore');
+      navigation.replace("Explore");
     } catch (error) {
-      console.error('createTrips:', error);
+      console.error("createTrips:", error);
     }
   };
 
@@ -61,5 +61,5 @@ class TripStore {
 }
 
 const tripStore = new TripStore(); // create instance
-tripStore.fecthTrips();
+tripStore.fetchTrips();
 export default tripStore; // export it
