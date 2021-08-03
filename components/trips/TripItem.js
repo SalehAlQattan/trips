@@ -18,20 +18,17 @@ import { observer } from "mobx-react";
 import profileStore from "../../stores/profileStore";
 
 const TripItem = ({ item, navigation }) => {
-  const userImage = profileStore.profiles
-    .filter((user) => user.userId === item.userId)
-    .map((user) => user.user)
-    .map((user) => user);
-  const user = Object.assign({}, ...userImage);
-
+  const profileSelected = profileStore.profiles
+    .find((profile) => profile.userId === item.userId);
+  console.log(profileSelected)
   return (
     <ItemList>
-      <UserNameText>{user.username}</UserNameText>
+      <UserNameText>{profileSelected.user?.username}</UserNameText>
       <ItemView>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Profile", { item: item })}
+          onPress={() => navigation.navigate("Profile", { item: profileSelected })}
         >
-          <DisplayProfile source={{ uri: user.image }} />
+          <DisplayProfile source={{ uri: profileSelected.image }} />
         </TouchableOpacity>
       </ItemView>
 

@@ -26,7 +26,7 @@ class ProfileStore {
             for (const key in updateItem) formData.append(key, updateItem[key])
             const res = await instance.put(`/profiles/${item}`, formData)
             const profile = this.profiles.find((profile) => profile.id === item);
-            for (const key in profile) profile[key] = updateItem[key]
+            for (const key in profile) profile[key] = res.data[key]
         } catch (error) {
             console.error(error)
         }

@@ -8,7 +8,7 @@ import profileStore from '../../../../stores/profileStore';
 
 const UpdateUser = ({ route, navigation }) => {
     const { user } = route.params;
-    const { item } = route.params
+    const { checkId } = route.params;
     const [profile, setProfile] = useState({
         bio: user.bio,
         // title: item.title,
@@ -17,9 +17,8 @@ const UpdateUser = ({ route, navigation }) => {
     });
     const handleUpdate = () => {
         /* update the user */
-        profileStore.updateItem(profile, item)
+        profileStore.updateItem(profile, checkId)
         navigation.replace("Explore")
-
     }
     return (
         <>
