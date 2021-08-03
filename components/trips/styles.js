@@ -15,6 +15,7 @@ export const TripWrpa = styled.TouchableOpacity`
 export const DisplayProfile = styled.Image`
   width: 50px;
   height: 50px;
+  right: 50px;
   border-radius: 100px;
 `;
 

@@ -23,10 +23,11 @@ const ProfileList = ({ route, navigation }) => {
             .filter((user) => user.userId === item.id)
             .map((user) => user)
             .map((user) => <ProfileItem user={user} key={user.id} navigation={navigation} item={item.userId} />);
+    console.log(userList)
     /* find all trips */
     const findTrips = tripStore.trips
         .filter((trip) => trip.userId === item.userId)
-        .map((trip) => <ProfileTrip trip={trip} key={trip.id} />);
+        .map((trip) => <ProfileTrip item={trip} key={trip.id} />);
     return (
         <>
             {userList}
