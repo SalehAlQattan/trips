@@ -1,8 +1,10 @@
+//library imports
 import styled from "styled-components/native";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { List } from "native-base";
+
 /* Wrapper */
 export const TripWrpa = styled.TouchableOpacity`
   display: flex;
@@ -135,4 +137,46 @@ export const UserNameText = styled.Text`
 `;
 export const ListItemContainer = styled(List)`
   border-width: 0px;
+`;
+
+export const TripImageDetail = styled.Image`
+  width: 90%;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 400px;
+  border-radius: 10px;
+`;
+
+export const TitleDetail = styled(List.Item)`
+  margin-top: 200px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+`;
+export const TextTitleDetail = styled.Text`
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 28px;
+  color: ${({ theme }) => theme.red};
+`;
+export const TextDescriptionDetail = styled.Text`
+  font-size: 20px;
+  margin-left: 10px;
+`;
+export const BGCDetail = styled.View`
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  background-color: ${({ theme }) => theme.random};
+`;
+export const DetailList = styled(List)`
+  border-width: 0px;
+`;
+export const ViewStyled = styled.View`
+  height: 400%;
+  width: 100%;
+  top: 250px;
+  background-color: ${({ theme }) => theme.white};
+  position: absolute;
+  z-index: -1;
 `;
