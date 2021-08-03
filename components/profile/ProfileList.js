@@ -14,7 +14,7 @@ const ProfileList = ({ route, navigation }) => {
     const { item } = route.params;
     /* find the user profile */
     const userList = profileStore.profiles
-        .filter((user) => user.userId === authStore.user?.id)
+        .filter((user) => user.userId === item.userId)
         .map((user) => user.user)
         .map((user) => <ProfileItem user={user} key={user.username} navigation={navigation} item={item.userId} />);
     console.log(userList)

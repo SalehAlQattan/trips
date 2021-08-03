@@ -2,8 +2,6 @@
 import { makeAutoObservable } from "mobx";
 //components
 import instance from "./instance";
-
-import authStore from "./authStore";
 class ProfileStore {
     profiles = [];
     loading = true;

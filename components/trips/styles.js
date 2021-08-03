@@ -14,13 +14,14 @@ export const DisplayProfile = styled.Image`
   width: 50px;
   height: 50px;
   border-radius: 100px;
+  right: 50px;
 `;
 
 /* Trip Title */
 export const TripTitle = styled.Text`
   text-align: center;
-  right: 30;
-  bottom: 10;
+  right: 30px;
+  bottom: 10px;
   color: ${({ theme }) => theme.white};
   font-size: 22px;
   font-weight: bold;
@@ -30,9 +31,9 @@ export const TripTitle = styled.Text`
 /* Trip Image */
 export const TripImage = styled.Image`
   width: 400px;
-  top: 10;
+  top: 10px;
   margin-bottom: 20px;
-  right: 40;
+  right: 40px;
   height: 130px;
   border-radius: 10px;
 `;
@@ -123,12 +124,12 @@ export const ItemList = styled(List.Item)`
 `;
 
 export const ItemView = styled.View`
-  bottom: 80;
-  right: 15;
+  bottom: 80px;
+  right: 15px;
 `;
 export const UserNameText = styled.Text`
-  left: 75;
-  bottom: 80;
+  left: 75px;
+  bottom: 80px;
   color: ${({ theme }) => theme.white};
   font-size: 20px;
 `;
