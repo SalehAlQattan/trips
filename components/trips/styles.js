@@ -16,7 +16,7 @@ export const DisplayProfile = styled.Image`
   width: 50px;
   height: 50px;
   border-radius: 100px;
-  right: 50px;
+  right: 10px;
 `;
 
 /* Trip Title */
