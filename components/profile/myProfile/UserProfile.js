@@ -1,11 +1,22 @@
-import { Button } from 'native-base';
-import React from 'react';
-import authStore from '../../../stores/authStore';
+//library imports
+import React from "react";
+import { Button } from "native-base";
 import { useNavigation } from "@react-navigation/native";
-import tripStore from '../../../stores/tripStore';
-import { Alert } from 'react-native';
+import { Alert, Image, TouchableOpacity } from "react-native";
+import { observer } from "mobx-react";
+//stores
+import authStore from "../../../stores/authStore";
+import tripStore from "../../../stores/tripStore";
+//styles
+import { MainProfileImage } from "../styles";
+const UserProfile = () => {
+  /* find the trips and user information */
+  const items = tripStore.trips
+    .filter((item) => item.userId === authStore.user?.id)
+    .map((item) => item);
 
-import { observer } from 'mobx-react';
+  /* convert array of object to object */
+  const item = Object.assign({}, ...items);
 
 const UserProfile = () => {
     /* find the trips and user information */
@@ -28,13 +39,15 @@ const UserProfile = () => {
                 ]
             );
         }
+
     }
-    const navigation = useNavigation();
-    return (
-        <>
-            <Button onPress={handlePress}>test</Button>
-        </>
-    );
+  };
+  const navigation = useNavigation();
+  return (
+    <TouchableOpacity onPress={handlePress}>
+      <MainProfileImage source={require("../../../assets/profile2.png")} />
+    </TouchableOpacity>
+  );
 };
 
 export default observer(UserProfile);

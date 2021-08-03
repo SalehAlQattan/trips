@@ -1,6 +1,6 @@
 //library imports
 import React from "react";
-import { List, Spinner } from "native-base";
+import { Spinner } from "native-base";
 import { observer } from "mobx-react";
 //components
 import TripItem from "./TripItem";
@@ -14,9 +14,11 @@ import { BGC, FloatingAdd, ListItemContainer } from "./styles";
 
 const TripsList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
-  const triplist = tripStore.trips.filter(item => item.userId !== authStore.user?.id).map((item) => (
-    <TripItem item={item} key={item.id} navigation={navigation} />
-  ));
+  const triplist = tripStore.trips
+    .filter((item) => item.userId !== authStore.user?.id)
+    .map((item) => (
+      <TripItem item={item} key={item.id} navigation={navigation} />
+    ));
 
   return (
     <BGC>

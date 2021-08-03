@@ -26,8 +26,7 @@ class AuthStore {
   signin = async (userData, navigation) => {
     try {
       const response = await instance.post("/signin", userData);
-      this.setUser(response.data.token);
-      navigation.replace("Explore");
+      this.setUser(response.data.token, navigation);
     } catch (error) {
       console.error("userSignin:", error);
     }
@@ -39,7 +38,7 @@ class AuthStore {
     this.user = null;
   };
 
-  setUser = async (token) => {
+  setUser = async (token, navigation) => {
     await AsyncStorage.setItem("userToken", token);
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     this.user = decode(token);

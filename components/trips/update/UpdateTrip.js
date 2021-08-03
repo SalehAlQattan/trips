@@ -1,18 +1,11 @@
-// components
-import React, { useState } from 'react';
-
-// native-base
-import { Button } from 'native-base';
-
+//library imports
+import React, { useState } from "react";
+import { Button } from "native-base";
+import { Image } from "react-native";
+import { observer } from "mobx-react";
+import * as DocumentPicker from "expo-document-picker";
 // stores
-import tripStore from '../../../stores/tripStore';
-
-// mobx
-import { observer } from 'mobx-react';
-
-// upload image
-import * as DocumentPicker from 'expo-document-picker';
-
+import tripStore from "../../../stores/tripStore";
 // styles
 import {
   AddTextInput,
@@ -20,8 +13,7 @@ import {
   AddTitle,
   ConfirmAddButton,
   ConfirmAddButtonText,
-} from '../styles';
-import { Image } from 'react-native';
+} from "../styles";
 
 const UpdateTrip = ({ route, navigation }) => {
   const { item } = route.params;
@@ -29,9 +21,9 @@ const UpdateTrip = ({ route, navigation }) => {
   const [trip, setTrip] = useState({
     id: item.id,
     title: item.title,
-    description: item.description ? item.description : '',
+    description: item.description ? item.description : "",
     image: {
-      uri: item.image ? item.image : '',
+      uri: item.image ? item.image : "",
     },
   });
 
@@ -39,18 +31,18 @@ const UpdateTrip = ({ route, navigation }) => {
   const pickDocument = async () => {
     try {
       let result = await DocumentPicker.getDocumentAsync({
-        type: '*/*',
+        type: "*/*",
         copyToCacheDirectory: true,
       }).then((response) => {
-        if (response.type == 'success') {
+        if (response.type == "success") {
           let { name, size, uri } = response;
-          let nameParts = name.split('.');
+          let nameParts = name.split(".");
           let fileType = nameParts[nameParts.length - 1];
           var fileToUpload = {
             name: name,
             size: size,
             uri: uri,
-            type: 'application/' + fileType,
+            type: "application/" + fileType,
           };
           setDoc(fileToUpload);
           setTrip({ ...trip, image: fileToUpload });
@@ -63,7 +55,7 @@ const UpdateTrip = ({ route, navigation }) => {
 
   const handleSubmit = () => {
     tripStore.updateTrip(trip);
-    navigation.replace('Explore');
+    navigation.replace("Explore");
   };
 
   return (

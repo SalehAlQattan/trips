@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import { UpdateTextInput } from '../../styles';
-
-import { observer } from 'mobx-react';
-import { Button } from 'native-base';
-import profileStore from '../../../../stores/profileStore';
-
+//library imports
+import React, { useState } from "react";
+import { observer } from "mobx-react";
+import { Button } from "native-base";
+//stores
+import profileStore from "../../../../stores/profileStore";
+//styles
+import { UpdateTextInput } from "../../styles";
 
 const UpdateUser = ({ route, navigation }) => {
+
     const { user } = route.params;
     const { checkId } = route.params;
     const [profile, setProfile] = useState({
@@ -32,6 +34,7 @@ const UpdateUser = ({ route, navigation }) => {
             <Button onPress={handleUpdate}>Update</Button>
         </>
     );
+
 };
 
 export default observer(UpdateUser);

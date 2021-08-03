@@ -1,14 +1,17 @@
+//library imports
 import React from "react";
-import { Button, Spinner, Text } from "native-base";
+import { ScrollView, Spinner, List } from "native-base";
+import { observer } from "mobx-react";
+//components
+import ProfileItem from "./ProfileItem";
+import ProfileTrip from "./ProfileTrip";
+//stores
 import profileStore from "../../stores/profileStore";
 import authStore from "../../stores/authStore";
 import tripStore from "../../stores/tripStore";
 
-import { observer } from "mobx-react";
-import ProfileItem from "./ProfileItem";
-import ProfileTrip from "./ProfileTrip";
-
 const ProfileList = ({ route, navigation }) => {
+
     const { checkId } = route.params;
     if (authStore.loading) <Spinner />
     const { item } = route.params;
@@ -30,6 +33,7 @@ const ProfileList = ({ route, navigation }) => {
             {findTrips}
         </>
     );
+
 };
 
 export default observer(ProfileList);

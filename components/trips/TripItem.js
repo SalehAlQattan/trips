@@ -1,7 +1,9 @@
 //library imports
 import React from "react";
-
-import { List } from "native-base";
+import { TouchableOpacity } from "react-native";
+import { observer } from "mobx-react";
+//stores
+import profileStore from "../../stores/profileStore";
 //styles
 import {
   DisplayProfile,
@@ -12,10 +14,6 @@ import {
   ItemList,
   UserNameText,
 } from "./styles";
-import { TouchableOpacity, Text } from "react-native";
-
-import { observer } from "mobx-react";
-import profileStore from "../../stores/profileStore";
 
 const TripItem = ({ item, navigation }) => {
   const profileSelected = profileStore.profiles
