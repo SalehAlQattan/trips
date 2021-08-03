@@ -1,9 +1,9 @@
 //library imports
-import styled from "styled-components/native";
-import { AntDesign } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-import { List } from "native-base";
+import styled from 'styled-components/native';
+import { AntDesign } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { List } from 'native-base';
 
 /* Wrapper */
 export const TripWrpa = styled.TouchableOpacity`
@@ -16,7 +16,6 @@ export const DisplayProfile = styled.Image`
   width: 50px;
   height: 50px;
   border-radius: 100px;
-  right: 10px;
 `;
 
 /* Trip Title */
