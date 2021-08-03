@@ -2,7 +2,6 @@
 import { makeAutoObservable } from "mobx";
 //components
 import instance from "./instance";
-
 class ProfileStore {
   profiles = [];
   loading = true;

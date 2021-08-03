@@ -39,6 +39,7 @@ const ProfileList = ({ route, navigation }) => {
       </ScrollView>
     </>
   );
+
 };
 
 export default observer(ProfileList);
