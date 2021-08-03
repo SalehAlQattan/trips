@@ -19,7 +19,7 @@ const ProfileItem = ({ user, navigation, item }) => {
         <ProfileImage source={{ uri: user.image }} />
       </List>
       {/* will check the username to edit the page */}
-      {item === authStore.user?.id && (
+      {user.userId === authStore.user?.id && (
         <List>
           <EditBtn
             name="edit"

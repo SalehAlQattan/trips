@@ -11,7 +11,7 @@ const AddButton = () => {
 
   const handlePress = () => {
     if (authStore.user) {
-      navigation.navigate("AddList");
+      navigation.replace("AddList");
     }
   };
 

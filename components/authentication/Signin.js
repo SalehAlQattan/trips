@@ -45,8 +45,8 @@ const Signin = ({ navigation }) => {
       <AuthButton onPress={handleSubmit}>
         <AuthButtonText>Sign in</AuthButtonText>
       </AuthButton>
-      <AuthOther onPress={() => navigation.navigate("Signup")}>
-        sign up
+      <AuthOther onPress={() => navigation.replace("Signup")}>
+        Tap here to Sign up
       </AuthOther>
     </AuthContainer>
   );
