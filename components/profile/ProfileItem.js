@@ -9,7 +9,7 @@ import authStore from "../../stores/authStore";
 import { EditBtn, ProfileImage } from "./styles";
 
 const ProfileItem = ({ user, navigation, item }) => {
-  if (profileStore.loading) <Spinner />
+  if (profileStore.loading) <Spinner />;
   return (
     <>
       <List>
@@ -19,10 +19,21 @@ const ProfileItem = ({ user, navigation, item }) => {
         <ProfileImage source={{ uri: user.image }} />
       </List>
       {/* will check the username to edit the page */}
-      {(item === authStore.user?.id) && <List>
-        <EditBtn name="edit" size={23} onPress={() => navigation.navigate("Edit Profile", { user: user, item: item, checkId: authStore.user?.id })} />
-      </List>}
-
+      {item === authStore.user?.id && (
+        <List>
+          <EditBtn
+            name="edit"
+            size={23}
+            onPress={() =>
+              navigation.navigate("Edit Profile", {
+                user: user,
+                item: item,
+                checkId: authStore.user?.id,
+              })
+            }
+          />
+        </List>
+      )}
 
       {/* will check the username to edit the page */}
     </>
