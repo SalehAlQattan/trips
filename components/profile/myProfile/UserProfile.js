@@ -7,6 +7,7 @@ import { observer } from "mobx-react";
 //stores
 import authStore from "../../../stores/authStore";
 import tripStore from "../../../stores/tripStore";
+import profileStore from "../../../stores/profileStore";
 //styles
 import { MainProfileImage } from "../styles";
 
@@ -17,6 +18,10 @@ const UserProfile = () => {
     .map((item) => item);
   /* convert array of object to object */
   const item = Object.assign({}, ...items);
+
+  const userImage = profileStore.profiles.find(
+    (profile) => profile.userId === authStore.user?.id
+  );
   const handlePress = () => {
     if (authStore.user)
       navigation.navigate("Profile", {
@@ -37,7 +42,13 @@ const UserProfile = () => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity onPress={handlePress}>
-      <MainProfileImage source={require("../../../assets/profile2.png")} />
+      <MainProfileImage
+        source={
+          authStore.user
+            ? { uri: userImage.image }
+            : require("../../../assets/profile2.png")
+        }
+      />
     </TouchableOpacity>
   );
 };
