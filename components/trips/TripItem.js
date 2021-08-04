@@ -16,9 +16,9 @@ import {
 } from "./styles";
 
 const TripItem = ({ item, navigation }) => {
-  const profileSelected = profileStore.profiles.find(
-    (profile) => profile.userId === item.userId
-  );
+
+  const profileSelected = profileStore.profiles
+    .find((profile) => profile.userId === item.userId);
   return (
     <ItemList>
       <UserNameText>{profileSelected.user?.username}</UserNameText>

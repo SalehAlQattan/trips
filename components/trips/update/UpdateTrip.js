@@ -1,7 +1,7 @@
 //library imports
 import React, { useState } from "react";
 import { Button } from "native-base";
-import { Image } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import { observer } from "mobx-react";
 import * as DocumentPicker from "expo-document-picker";
 // stores
@@ -14,10 +14,11 @@ import {
   ConfirmAddButton,
   ConfirmAddButtonText,
 } from "../styles";
+import { MaterialIcons } from '@expo/vector-icons';
 
 const UpdateTrip = ({ route, navigation }) => {
   const { item } = route.params;
-
+  const [fav, setFav] = useState(item.favorite);
   const [trip, setTrip] = useState({
     id: item.id,
     title: item.title,
@@ -25,6 +26,7 @@ const UpdateTrip = ({ route, navigation }) => {
     image: {
       uri: item.image ? item.image : "",
     },
+    favorite: item.favorite
   });
 
   const [doc, setDoc] = useState();
@@ -53,6 +55,12 @@ const UpdateTrip = ({ route, navigation }) => {
     }
   };
 
+  /* handle favorite */
+  const handleCheck = () => {
+    setFav(!fav)
+    setTrip({ ...trip, favorite: !fav })
+  }
+
   const handleSubmit = () => {
     tripStore.updateTrip(trip);
     navigation.replace("Explore");
@@ -79,6 +87,11 @@ const UpdateTrip = ({ route, navigation }) => {
         style={{ width: 200, height: 200 }}
       />
       <Button onPress={pickDocument}>Update your image</Button>
+      {/* Favorite button */}
+      <TouchableOpacity onPress={handleCheck}>
+        {fav ? <MaterialIcons name="favorite" size={30} color="red" style={{ marginTop: 10 }} /> : <MaterialIcons name="favorite-outline" size={30} color="black" style={{ marginTop: 10 }} />}
+      </TouchableOpacity>
+
       <ConfirmAddButton onPress={handleSubmit}>
         <ConfirmAddButtonText>Update</ConfirmAddButtonText>
       </ConfirmAddButton>
