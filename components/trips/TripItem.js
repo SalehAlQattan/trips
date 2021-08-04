@@ -18,7 +18,6 @@ import {
 const TripItem = ({ item, navigation }) => {
   const profileSelected = profileStore.profiles
     .find((profile) => profile.userId === item.userId);
-  console.log(profileSelected)
   return (
     <ItemList>
       <UserNameText>{profileSelected.user?.username}</UserNameText>

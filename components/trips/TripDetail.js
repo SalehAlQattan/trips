@@ -2,7 +2,7 @@
 import React from "react";
 import { List, Spinner } from "native-base";
 import { observer } from "mobx-react";
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 //stores
 import tripStore from "../../stores/tripStore";
 import authStore from "../../stores/authStore";
@@ -19,6 +19,7 @@ import {
   DetailList,
   ViewStyled,
 } from "./styles";
+import { MaterialIcons } from '@expo/vector-icons';
 
 const TripDetail = ({ route, navigation }) => {
   if (tripStore.loading) return <Spinner />;
@@ -47,6 +48,11 @@ const TripDetail = ({ route, navigation }) => {
             <List.Item>
               <TextDescriptionDetail>{item.description}</TextDescriptionDetail>
             </List.Item>
+            {item.favorite &&
+              <View style={{ justiftyContent: "center", alignItems: "center", marginTop: 25 }}>
+                <MaterialIcons name="favorite" size={40} color="orange" />
+              </View>
+            }
             {item.userId === authStore.user?.id && (
               <Action>
                 <DeleteBtn
