@@ -2,12 +2,18 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import { Button } from "native-base";
-import { Image } from "react-native";
+import { Image, TouchableOpacity, Text } from "react-native";
 import * as DocumentPicker from "expo-document-picker";
 //stores
 import profileStore from "../../../../stores/profileStore";
 //styles
-import { UpdateTextInput } from "../../styles";
+import {
+  UpdateTextInput,
+  UpdateContainer,
+  UpdateImage,
+  TextInfo,
+  BioTextInput,
+} from "../../styles";
 
 const UpdateUser = ({ route, navigation }) => {
   const { user } = route.params;
@@ -48,21 +54,21 @@ const UpdateUser = ({ route, navigation }) => {
     navigation.goBack();
   };
   return (
-    <>
-      <UpdateTextInput
-        placeholder="Type your Bio ... "
+    <UpdateContainer>
+      <TouchableOpacity onPress={pickDocument}>
+        <UpdateImage source={{ uri: profile.image.uri }} />
+      </TouchableOpacity>
+      <TextInfo>Click on the image to Update</TextInfo>
+      <BioTextInput
+        placeholder="Type in your Bio ... "
         placeholderTextColor="#949499"
         autoCapitalize="none"
         onChangeText={(bio) => setProfile({ ...profile, bio })}
         value={profile.bio}
       />
-      <Image
-        source={{ uri: profile.image.uri }}
-        style={{ width: 200, height: 200 }}
-      />
-      <Button onPress={pickDocument}>Update your image</Button>
+
       <Button onPress={handleUpdate}>Update</Button>
-    </>
+    </UpdateContainer>
   );
 };
 

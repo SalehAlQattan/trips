@@ -12,27 +12,28 @@ import { MainProfileImage } from "../styles";
 
 const UserProfile = () => {
   /* find the trips and user information */
-  const items = tripStore.trips.filter(item => item.userId === authStore.user?.id).map((item) => item);
+  const items = tripStore.trips
+    .filter((item) => item.userId === authStore.user?.id)
+    .map((item) => item);
   /* convert array of object to object */
-  const item = Object.assign({}, ...items)
+  const item = Object.assign({}, ...items);
   const handlePress = () => {
-    if (authStore.user) navigation.navigate("Profile", { item: item, checkId: authStore.user?.id })
+    if (authStore.user)
+      navigation.navigate("Profile", {
+        item: item,
+        checkId: authStore.user?.id,
+      });
     else {
-      Alert.alert(
-        "Sign in",
-        "Sign in to access checkout",
-        [
-          {
-            text: "Cancel",
-            onPress: () => console.log("Cancel Pressed"),
-            style: "cancel"
-          },
-          { text: "Signin", onPress: () => navigation.navigate("Signin") }
-        ]
-      );
+      Alert.alert("Sign in", "Sign in to access checkout", [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
+        },
+        { text: "Signin", onPress: () => navigation.navigate("Signin") },
+      ]);
     }
-
-  }
+  };
   const navigation = useNavigation();
   return (
     <TouchableOpacity onPress={handlePress}>

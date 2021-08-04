@@ -1,3 +1,4 @@
+//library imports
 import styled from "styled-components/native";
 
 export const AuthContainer = styled.View`
