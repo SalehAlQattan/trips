@@ -13,6 +13,7 @@ import {
   UpdateImage,
   TextInfo,
   BioTextInput,
+  UpdateProfileButton,
 } from "../../styles";
 
 const UpdateUser = ({ route, navigation }) => {
@@ -67,7 +68,7 @@ const UpdateUser = ({ route, navigation }) => {
         value={profile.bio}
       />
 
-      <Button onPress={handleUpdate}>Update</Button>
+      <UpdateProfileButton onPress={handleUpdate}>Update</UpdateProfileButton>
     </UpdateContainer>
   );
 };

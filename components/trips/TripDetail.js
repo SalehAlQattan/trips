@@ -43,7 +43,7 @@ const TripDetail = ({ route, navigation }) => {
           <TripImageDetail source={{ uri: item.image }} />
           <ViewStyled>
             <TitleDetail>
-              <TextTitleDetail>{item.title}</TextTitleDetail>
+              <TextTitleDetail>{item.title.toUpperCase()}</TextTitleDetail>
             </TitleDetail>
             <List.Item>
               <TextDescriptionDetail>{item.description}</TextDescriptionDetail>

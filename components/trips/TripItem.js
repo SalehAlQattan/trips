@@ -16,6 +16,7 @@ import {
 } from "./styles";
 
 const TripItem = ({ item, navigation }) => {
+
   const profileSelected = profileStore.profiles
     .find((profile) => profile.userId === item.userId);
   return (
@@ -23,7 +24,9 @@ const TripItem = ({ item, navigation }) => {
       <UserNameText>{profileSelected.user?.username}</UserNameText>
       <ItemView>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Profile", { item: profileSelected })}
+          onPress={() =>
+            navigation.navigate("Profile", { item: profileSelected })
+          }
         >
           <DisplayProfile source={{ uri: profileSelected.image }} />
         </TouchableOpacity>
