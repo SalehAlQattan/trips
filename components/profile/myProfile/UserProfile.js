@@ -45,7 +45,7 @@ const UserProfile = () => {
       <MainProfileImage
         source={
           authStore.user
-            ? { uri: userImage.image }
+            ? { uri: userImage?.image }
             : require("../../../assets/profile2.png")
         }
       />
