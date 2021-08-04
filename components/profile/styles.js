@@ -1,7 +1,7 @@
 //library imports
 import styled from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
-import { List, ScrollView } from "native-base";
+import { List, ScrollView, Button } from "native-base";
 
 export const MainProfileImage = styled.Image`
   width: 40px;
@@ -13,7 +13,7 @@ export const MainProfileImage = styled.Image`
 
 /* Edit Button */
 export const EditBtn = styled(Feather)`
-  color: #0dcaf0;
+  color: ${({ theme }) => theme.white};
   text-align: center;
   left: 190px;
   bottom: 175px;
@@ -120,5 +120,8 @@ export const BGCProfile = styled.View`
   flex: 1;
   height: 100%;
   width: 100%;
+  background-color: ${({ theme }) => theme.random};
+`;
+export const UpdateProfileButton = styled(Button)`
   background-color: ${({ theme }) => theme.random};
 `;
