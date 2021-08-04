@@ -14,7 +14,8 @@ const theme = {
   lightBlue: "#98C4D1",
   random: "#505e9c",
   light: "#3a4471",
-  superLight: "#446184",
+  superLight: "#434f83",
+  fade: "#949499",
 };
 
 export default function App() {

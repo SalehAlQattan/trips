@@ -13,6 +13,7 @@ import ProfileList from "../profile/ProfileList";
 import UpdateTrip from "../trips/update/UpdateTrip";
 import UserProfile from "../profile/myProfile/UserProfile";
 import UpdateUser from "../profile/myProfile/update/UpdateUser";
+import UpdateProfileButton from "../profile/myProfile/update/UpdateProfileButton";
 
 const Stack = createStackNavigator();
 
@@ -87,8 +88,27 @@ export default RootNavigator = () => {
           headerTintColor: "white",
         }}
       />
-      <Stack.Screen name="Profile" component={ProfileList} />
-      <Stack.Screen name="Edit Profile" component={UpdateUser} />
+      <Stack.Screen
+        name="Profile"
+        component={ProfileList}
+        options={{
+          headerStyle: {
+            backgroundColor: "#3a4471",
+          },
+          headerTintColor: "white",
+          headerRight: () => <UpdateProfileButton />,
+        }}
+      />
+      <Stack.Screen
+        name="Edit Profile"
+        component={UpdateUser}
+        options={{
+          headerStyle: {
+            backgroundColor: "#505e9c",
+          },
+          headerTintColor: "white",
+        }}
+      />
     </Stack.Navigator>
   );
 };
