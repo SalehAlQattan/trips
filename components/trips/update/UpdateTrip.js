@@ -1,6 +1,5 @@
 //library imports
 import React, { useState } from "react";
-import { Button } from "native-base";
 import { Image, TouchableOpacity } from "react-native";
 import { observer } from "mobx-react";
 import * as DocumentPicker from "expo-document-picker";
@@ -13,8 +12,9 @@ import {
   AddTitle,
   ConfirmAddButton,
   ConfirmAddButtonText,
+  TextUpdateDetail,
 } from "../styles";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
 
 const UpdateTrip = ({ route, navigation }) => {
   const { item } = route.params;
@@ -26,7 +26,7 @@ const UpdateTrip = ({ route, navigation }) => {
     image: {
       uri: item.image ? item.image : "",
     },
-    favorite: item.favorite
+    favorite: item.favorite,
   });
 
   const [doc, setDoc] = useState();
@@ -57,9 +57,9 @@ const UpdateTrip = ({ route, navigation }) => {
 
   /* handle favorite */
   const handleCheck = () => {
-    setFav(!fav)
-    setTrip({ ...trip, favorite: !fav })
-  }
+    setFav(!fav);
+    setTrip({ ...trip, favorite: !fav });
+  };
 
   const handleSubmit = () => {
     tripStore.updateTrip(trip);
@@ -82,14 +82,31 @@ const UpdateTrip = ({ route, navigation }) => {
         multiline={true}
         onChangeText={(description) => setTrip({ ...trip, description })}
       />
-      <Image
-        source={{ uri: trip.image.uri }}
-        style={{ width: 200, height: 200 }}
-      />
-      <Button onPress={pickDocument}>Update your image</Button>
+      <TouchableOpacity onPress={pickDocument}>
+        <Image
+          source={{ uri: trip.image.uri }}
+          style={{ width: 200, height: 200 }}
+        />
+      </TouchableOpacity>
+
+      <TextUpdateDetail>Click to Update your image</TextUpdateDetail>
       {/* Favorite button */}
       <TouchableOpacity onPress={handleCheck}>
-        {fav ? <MaterialIcons name="favorite" size={30} color="red" style={{ marginTop: 10 }} /> : <MaterialIcons name="favorite-outline" size={30} color="black" style={{ marginTop: 10 }} />}
+        {fav ? (
+          <MaterialIcons
+            name="favorite"
+            size={30}
+            color="red"
+            style={{ marginTop: 10 }}
+          />
+        ) : (
+          <MaterialIcons
+            name="favorite-outline"
+            size={30}
+            color="black"
+            style={{ marginTop: 10 }}
+          />
+        )}
       </TouchableOpacity>
 
       <ConfirmAddButton onPress={handleSubmit}>

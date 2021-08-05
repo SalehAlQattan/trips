@@ -53,6 +53,7 @@ const UpdateUser = ({ route, navigation }) => {
     /* update the user */
     profileStore.updateItem(profile, checkId);
     navigation.goBack();
+    console.log(profile);
   };
   return (
     <UpdateContainer>

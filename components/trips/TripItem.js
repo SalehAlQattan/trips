@@ -16,12 +16,11 @@ import {
 } from "./styles";
 
 const TripItem = ({ item, navigation }) => {
-
-  const profileSelected = profileStore.profiles
-    .find((profile) => profile.userId === item.userId);
+  const profileSelected = profileStore.profiles.find(
+    (profile) => profile.userId === item.userId
+  );
   return (
     <ItemList>
-      <UserNameText>{profileSelected.user?.username}</UserNameText>
       <ItemView>
         <TouchableOpacity
           onPress={() =>
@@ -30,6 +29,7 @@ const TripItem = ({ item, navigation }) => {
         >
           <DisplayProfile source={{ uri: profileSelected.image }} />
         </TouchableOpacity>
+        <UserNameText>{profileSelected.user?.username}</UserNameText>
       </ItemView>
 
       <TripWrpa onPress={() => navigation.navigate("Detail", { item: item })}>
