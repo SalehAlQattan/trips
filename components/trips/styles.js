@@ -1,14 +1,16 @@
 //library imports
-import styled from "styled-components/native";
+import styled from "styled-components";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-import { List } from "native-base";
+import { List, theme } from "native-base";
 
 /* Wrapper */
 export const TripWrpa = styled.TouchableOpacity`
   display: flex;
-  margin: auto;
+  margin-top: 70px;
+  margin-left: 5px;
+  z-index: 0;
 `;
 
 /* User Profile Image */
@@ -16,17 +18,16 @@ export const DisplayProfile = styled.Image`
   width: 50px;
   height: 50px;
   border-radius: 100px;
+  align-self: stretch;
 `;
 
 /* Trip Title */
 export const TripTitle = styled.Text`
   text-align: center;
-  right: 30px;
   bottom: 10px;
   color: ${({ theme }) => theme.white};
   font-size: 22px;
   font-weight: bold;
-  margin-top: 80px;
 `;
 
 /* Trip Image */
@@ -34,7 +35,6 @@ export const TripImage = styled.Image`
   width: 400px;
   top: 10px;
   margin-bottom: 20px;
-  right: 40px;
   height: 130px;
   border-radius: 10px;
 `;
@@ -125,14 +125,21 @@ export const ItemList = styled(List.Item)`
 `;
 
 export const ItemView = styled.View`
-  bottom: 80px;
-  right: 15px;
+  position: absolute;
+  align-items: center;
+  width: 40%;
+  height: 60px;
+  z-index: 1;
+  bottom: 180px;
+  left: 5px;
+  align-items: flex-start;
+  flex-direction: row;
 `;
 export const UserNameText = styled.Text`
-  left: 75px;
-  bottom: 80px;
   color: ${({ theme }) => theme.white};
   font-size: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
 `;
 export const ListItemContainer = styled(List)`
   border-width: 0px;
@@ -178,4 +185,8 @@ export const ViewStyled = styled.View`
   background-color: ${({ theme }) => theme.white};
   position: absolute;
   z-index: -1;
+`;
+export const TextUpdateDetail = styled.Text`
+  color: ${({ theme }) => theme.fade};
+  margin-top: 5px;
 `;

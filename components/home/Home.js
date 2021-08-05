@@ -42,7 +42,7 @@ const Home = ({ navigation }) => {
                 <HomeSigninButtonText>Sign in</HomeSigninButtonText>
               </HomeSigninButton>
               <TextOther onPress={() => navigation.navigate("Explore")}>
-                As Guest
+                Continue as Guest
               </TextOther>
             </>
           )}

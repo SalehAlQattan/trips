@@ -22,7 +22,8 @@ export const HomeSigninButton = styled.TouchableOpacity`
   background-color: ${(props) => props.theme.red};
   margin-top: 50px;
   border-radius: 50px;
-  margin-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
   width: 200px;
 `;
 export const HomeSigninButtonText = styled.Text`
@@ -35,8 +36,10 @@ export const TextOther = styled.Text`
   margin-top: 15px;
   border-bottom-width: 1px;
   padding-right: 80px;
-  padding-left: 90px;
+  padding-left: 80px;
   font-size: 18px;
   align-self: center;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 `;
